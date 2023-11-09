@@ -1,18 +1,19 @@
 ---
 title: "Dashboard_1"
 author: "Jiajun Zhang"
-date: "2023-11-06"
+date: "2023-11-04"
 categories: [code, analysis]
 image: "image.jpg"
 ---
 
+Population figures for countries, regions (e.g. Asia) and the world.
+
 Data from <a href= "https://datahub.io/core/population">datahub.io</a>
 
-Including population figures for countries, regions (e.g. Asia) and the world. Data comes originally from World Bank and has been converted into standard CSV. Data
+Data comes originally from World Bank and has been converted into standard CSV. Data
 
-<h3>Load Package and Data</h3>
+<h3>Load packages and data</h3>
 ```{r loading-package-and-data,message = FALSE}
-library(broom)
 library(tidyverse)
 library(magrittr)
 pop_data <- read.csv("population_csv.csv")
@@ -25,7 +26,7 @@ pop_data <- read.csv("population_csv.csv")
 pop_all <- pop_data %>%
     filter(Country.Code == "WLD")
 
-#Visualize
+# Visualize
 ggplot(pop_all, aes(x = Year, y = Value)) + 
   geom_line() + 
   theme_minimal() +
@@ -40,15 +41,14 @@ pop_USA <- pop_data %>%
     filter(Country.Code == "USA")%>%
     mutate(percentage = c(0,(diff(Value) /head(Value, -1))*100))
 
-
-#Visualize
+# Visualize
 ggplot(pop_USA, aes(x = Year, y = percentage)) + 
   geom_line() + 
   theme_minimal() +
   labs(title = "US Population", x = "Year", y = "Population Growth(%)")
 ```
 
-<h3>linear model prediction for Chinese population next 10 years</h3>
+<h3>Linear model prediction for Chinese population next 10 years</h3>
 
 ```{r CHN-population-growth}
 # Filter the Data
@@ -56,17 +56,18 @@ pop_CHN <- pop_data %>%
     filter(Country.Code == "CHN")
 Year <- pop_CHN$Year
 Value <- pop_CHN$Value
-# predict
+
+# Predict
 model <- lm(Value ~ Year, data=pop_CHN)
 future_years <- data.frame(Year=seq(max(Year)+1, max(Year)+10, 1))
 predictions <- predict(model, newdata = future_years)
 print(predictions)
 ```
 
-<h3>pie chart for China, Japan,and South Korea population in East Asia & Pacific in 2015</h3>
+<h3>Pie chart for China, Japan,and South Korea population in East Asia & Pacific in 2015</h3>
 
 ```{r Pie-Chart}
-#get 2015 data
+#Get 2015 data
 pop_data2015 <- pop_data %>%
     filter(Year == 2015)
 pop_CJK2015 <- pop_data2015 %>%
@@ -75,9 +76,9 @@ pop_EAS2015 <- pop_data2015 %>%
     filter(Country.Code == "EAS")
 
 pop_Other <- pop_EAS2015$Value - sum(pop_CJK2015$Value)
-
+# Catagorize pie data
 pie_data <- rbind(pop_CJK2015, data.frame(Country.Name = "Other", Country.Code = "OTH", Year = 2015 ,Value = pop_Other))
-# draw pie chart
+# Draw pie chart
 ggplot(pie_data, aes(x = "", y = Value, fill = Country.Name)) +
   geom_bar(width = 1, stat = "identity") +
   coord_polar("y", start = 0) +

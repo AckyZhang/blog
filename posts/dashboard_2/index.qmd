@@ -1,9 +1,43 @@
 ---
 title: "Dashboard_2"
 author: "Jiajun Zhang"
-date: "2023-11-04"
+date: "2023-11-06"
 categories: [code, analysis]
 image: "image.jpg"
 ---
 
-This is a post with executable code.
+Annual incomes data in U.S
+
+Data from <a href= "https://datahub.io/core/household-income-us-historical">datahub.io</a>
+
+Upper limits of annual incomes for each fifth and lower limit of income for top 5 percent of all housholds from 1967 to last year Data This dataset is acquired from U.S. Census Bureau, Current Population Survey, Annual Social and Economic Supplements.
+
+<h3>Load packages and data</h3>
+```{r loading-package-and-data,message = FALSE}
+library(broom)
+library(tidyverse)
+library(magrittr)
+household_data <- read.csv("household-income-us-historical_csv.csv")
+```
+
+<h3>Show the comparison between all the data</h3>
+
+```{r comparison}
+# Rearrange the columns
+long_data <- pivot_longer(household_data,  cols = -c(Year, Number..thousands.), 
+  names_to = "Statistic", 
+  values_to = "Value")
+# Visualize
+ggplot(long_data, aes(x = Year, y = Value, color = Statistic, group = Statistic)) +
+  geom_line() + 
+  theme_minimal() + 
+  labs(title = "Comparison", x = "Year", y = "Value")
+```
+
+<h3>Calculate the highest difference between the lowest upper limit and the top 5 percent limit</h3>
+
+```{r comparison-high-low}
+# Calculate
+res <- max(household_data$Top.5.percent-household_data$Lowest)
+print(res)
+```

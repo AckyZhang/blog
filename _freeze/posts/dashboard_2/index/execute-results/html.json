@@ -1,0 +1,16 @@
+{
+  "hash": "c896f24404fb0e36b0852d0968f8ca73",
+  "result": {
+    "markdown": "---\ntitle: \"Dashboard_2\"\nauthor: \"Jiajun Zhang\"\ndate: \"2023-11-06\"\ncategories: [code, analysis]\nimage: \"image.jpg\"\n---\n\n\nAnnual incomes data in U.S\n\nData from <a href= \"https://datahub.io/core/household-income-us-historical\">datahub.io</a>\n\nUpper limits of annual incomes for each fifth and lower limit of income for top 5 percent of all housholds from 1967 to last year Data This dataset is acquired from U.S. Census Bureau, Current Population Survey, Annual Social and Economic Supplements.\n\n<h3>Load packages and data</h3>\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(broom)\nlibrary(tidyverse)\nlibrary(magrittr)\nhousehold_data <- read.csv(\"household-income-us-historical_csv.csv\")\n```\n:::\n\n\n<h3>Show the comparison between all the data</h3>\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Rearrange the columns\nlong_data <- pivot_longer(household_data,  cols = -c(Year, Number..thousands.), \n  names_to = \"Statistic\", \n  values_to = \"Value\")\n# Visualize\nggplot(long_data, aes(x = Year, y = Value, color = Statistic, group = Statistic)) +\n  geom_line() + \n  theme_minimal() + \n  labs(title = \"Comparison\", x = \"Year\", y = \"Value\")\n```\n\n::: {.cell-output-display}\n![](index_files/figure-html/comparison-1.png){width=672}\n:::\n:::\n\n\n<h3>Calculate the highest difference between the lowest upper limit and the top 5 percent limit</h3>\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Calculate\nres <- max(household_data$Top.5.percent-household_data$Lowest)\nprint(res)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 205577\n```\n:::\n:::",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
