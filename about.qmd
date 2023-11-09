@@ -20,7 +20,8 @@ And you can call me Acedia or Acky as well. If you find Jiajun is hard to pronou
 Currently, I am enrolled as a student in the Master of Science in Information Management (MSIM) program at the University of Illinois at Urbana-Champaign (UIUC).
 </p>
 <p align="left">
-This blog is a course project.
+This blog is a course project. The source code can be found in my Github:
+<a href="https://github.com/AckyZhang/blog">Blog code</a>
 </p>
 <p align="left">
 I consider myself a dedicated thinker who thrives on tackling intricate problems and developing innovative solutions to enhance model performance and interpretability.
