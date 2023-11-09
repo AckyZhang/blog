@@ -1,0 +1,37 @@
+[
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!\n\n\n\nWelcome\n\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/dashboard_1/index.html",
+    "href": "posts/dashboard_1/index.html",
+    "title": "Dashboard_1",
+    "section": "",
+    "text": "This is a post with executable code."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Welcome to my first data science blog! It’s Jiajun Zhang here. And you can call me Acedia or Acky as well. If you find Jiajun is hard to pronounce.\n\n\nCurrently, I am enrolled as a student in the Master of Science in Information Management (MSIM) program at the University of Illinois at Urbana-Champaign (UIUC).\n\n\nThis blog is a course project.\n\n\nI consider myself a dedicated thinker who thrives on tackling intricate problems and developing innovative solutions to enhance model performance and interpretability. For leisure, I like to play card games like bridge.\n\n\nYour interest and engagement are greatly appreciated."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Posts",
+    "section": "",
+    "text": "Dashboard_1\n\n\n\n\n\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nNov 6, 2023\n\n\nJiajun Zhang\n\n\n\n\n\n\n  \n\n\n\n\nDashboard_2\n\n\n\n\n\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nNov 4, 2023\n\n\nJiajun Zhang\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nNov 2, 2023\n\n\nJiajun Zhang\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/dashboard_2/index.html",
+    "href": "posts/dashboard_2/index.html",
+    "title": "Dashboard_2",
+    "section": "",
+    "text": "This is a post with executable code."
+  }
+]
