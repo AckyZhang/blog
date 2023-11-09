@@ -6,26 +6,43 @@ categories: [code, analysis]
 image: "image.jpg"
 ---
 
-<p>Dataset here we used comes from <a href="https://datahub.io/core/population">Datahub.io</a></p>
+Data from <a href= "https://datahub.io/core/population">datahub.io</a>
+
 Including population figures for countries, regions (e.g. Asia) and the world. Data comes originally from World Bank and has been converted into standard CSV. Data
 
 <h3>Load Package and Data</h3>
-```{r}
+```{r loading-package-and-data,message = FALSE}
 library(broom)
 library(tidyverse)
 library(magrittr)
-pop_data <- read.csv("posts/dashboard_1/population_csv.csv")
+pop_data <- read.csv("population_csv.csv")
 ```
 
 <h3>Show the world population by year</h3>
 
-```{r}
+```{r world-population}
 # Filter the Data
 pop_all <- pop_data %>%
     filter(Country.Code == "WLD")
 
 #Visualize
 ggplot(pop_all, aes(x = Year, y = Value)) + 
+  geom_line() + 
+  theme_minimal() +
+  labs(title = "World Population", x = "Year", y = "Population")
+```
+
+<h3>Show the US population growth per year by percentage</h3>
+
+```{r USA-population-growth}
+# Filter the Data
+pop_USA <- pop_data %>%
+    filter(Country.Code == "USA")%>%
+    mutate(percentage = c(0,(diff(Value) /head(Value, -1))*100))
+
+
+#Visualize
+ggplot(pop_USA, aes(x = Year, y = percentage)) + 
   geom_line() + 
   theme_minimal() +
   labs(title = "World Population", x = "Year", y = "Population")
