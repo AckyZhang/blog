@@ -6,18 +6,27 @@ categories: [code, analysis]
 image: "image.jpg"
 ---
 
-Dataset comes from
-<a href="https://datahub.io/core/population/r/0.html"></a>
-
-<iframe src="https://datahub.io/core/population/r/0.html" width="100%" height="100%" frameborder="0"></iframe>
+<p>Dataset here we used comes from <a href="https://datahub.io/core/population">Datahub.io</a></p>
+Including population figures for countries, regions (e.g. Asia) and the world. Data comes originally from World Bank and has been converted into standard CSV. Data
 
 <h3>Load Package and Data</h3>
-```{r load-packages-and-data, message = FALSE, eval = TRUE}
+```{r}
 library(broom)
 library(tidyverse)
 library(magrittr)
-pop_data <- read.csv("population_csv.csv")
-pop_data
+pop_data <- read.csv("posts/dashboard_1/population_csv.csv")
 ```
 
-<h3>Load Package and Data</h3>
+<h3>Show the world population by year</h3>
+
+```{r}
+# Filter the Data
+pop_all <- pop_data %>%
+    filter(Country.Code == "WLD")
+
+#Visualize
+ggplot(pop_all, aes(x = Year, y = Value)) + 
+  geom_line() + 
+  theme_minimal() +
+  labs(title = "World Population", x = "Year", y = "Population")
+```
