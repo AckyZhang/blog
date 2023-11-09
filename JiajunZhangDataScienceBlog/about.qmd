@@ -1,0 +1,31 @@
+---
+title: "About"
+image: profile.png
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/jiajun-zhang-8b794625b
+    - icon: github
+      text: Github
+      href: https://github.com/AckyZhang
+
+---
+<p align="left">
+Welcome to my first data science blog! It's Jiajun Zhang here. 
+And you can call me Acedia or Acky as well. If you find Jiajun is hard to pronounce.
+</p>
+<p align="left">
+Currently, I am enrolled as a student in the Master of Science in Information Management (MSIM) program at the University of Illinois at Urbana-Champaign (UIUC).
+</p>
+<p align="left">
+This blog is a course project.
+</p>
+<p align="left">
+I consider myself a dedicated thinker who thrives on tackling intricate problems and developing innovative solutions to enhance model performance and interpretability.
+For leisure, I like to play card games like bridge.
+</p>
+<p align="left">
+Your interest and engagement are greatly appreciated.
+</p>
