@@ -16,7 +16,7 @@ Dataset comes from
 library(broom)
 library(tidyverse)
 library(magrittr)
-pop_data <- readcsv("population_csv.csv")
+pop_data <- read.csv("population_csv.csv")
 pop_data
 ```
 
