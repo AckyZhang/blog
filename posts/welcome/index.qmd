@@ -10,4 +10,6 @@ This is the first post in a Quarto blog. Welcome!
 
 ![Welcome](mypic.jpg){height=420px, width=640px}
 
-Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
+Please read my about page!
+
+<a href="https://ackyzhang.github.io/blog/about.html">About</a>

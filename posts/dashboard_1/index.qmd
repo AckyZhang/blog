@@ -6,4 +6,18 @@ categories: [code, analysis]
 image: "image.jpg"
 ---
 
-This is a post with executable code.
+Dataset comes from
+<a href="https://datahub.io/core/population/r/0.html"></a>
+
+<iframe src="https://datahub.io/core/population/r/0.html" width="100%" height="100%" frameborder="0"></iframe>
+
+<h3>Load Package and Data</h3>
+```{r load-packages-and-data, message = FALSE, eval = TRUE}
+library(broom)
+library(tidyverse)
+library(magrittr)
+pop_data <- readcsv("population_csv.csv")
+pop_data
+```
+
+<h3>Load Package and Data</h3>
